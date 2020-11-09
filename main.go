@@ -41,7 +41,7 @@ func main() {
 // address retrieved via an API call on api.ipify.org
 func retrievePTR() string {
 	// Request the IP from ipify
-	ip, err := httpclient.GetString("https://api.ipify.org/")
+	ip, err := httpclient.New().Get("https://api.ipify.org/").String()
 	if err != nil {
 		log.Fatal("Failed to retrieve public IP")
 	}
